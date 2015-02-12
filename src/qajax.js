@@ -93,7 +93,7 @@
     // if data is a Javascript object, JSON is used
     var data = this.data;
     var headers = this.headers;
-    if (data !== null && typeof data === "object") {
+    if (data !== null && typeof data === "object" && !(data instanceof FormData)) {
       if (!(CONTENT_TYPE in headers))
         headers[CONTENT_TYPE] = "application/json";
       this.data = JSON.stringify(data);
